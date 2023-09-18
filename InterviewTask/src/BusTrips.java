@@ -14,6 +14,10 @@ public class BusTrips {
 
 
     public static void main(String[] args) {
+        if (args.length != 3){
+            System.out.println("Invalid input");
+            System.exit(-1);
+        }
         System.out.println(getNameOfStop(args[0]));
         nextStops(args[0], Integer.parseInt(args[1]),args[2]);
     }
@@ -44,7 +48,7 @@ public class BusTrips {
             line = br.readLine();
             while (line != null){
                 String[] busStop = line.split(",");
-                String arrivalTime = busStop[1]; //arrival time of the bus stop
+                String arrivalTime = busStop[1]; //arrivals time of the bus stop
                 String tripId = busStop[0]; //name of the ID
                 long minuteDifference = compareTimes(arrivalTime);
                 if (busStop[3].equals(stopId) && minuteDifference < 120 && minuteDifference>0){ //checks if it's the correct ID and if it's in the correct time interval
